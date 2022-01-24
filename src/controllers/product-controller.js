@@ -11,6 +11,18 @@ class ProductController{
       const data = await RequestAPI.getProduct(urlAPI + `/${id}`)
       return data
     }
+
+    static async filterProductByCategory(category){
+      const data = await this.getAll()
+      const filtered = data.filter(product => product.categoria === category)
+      return filtered
+    }
+
+    static async filterProductByName(name){
+      const data = await this.getAll()
+      const filtered = data.filter(product => product.nome.toLowerCase().includes(name.toLowerCase()))
+      return filtered
+    }
 }
 
 export {ProductController}
