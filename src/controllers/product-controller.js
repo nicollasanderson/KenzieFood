@@ -1,12 +1,16 @@
-const RequestAPI = require('../request/request')
+import {RequestAPI} from '../request/requeste.js'
 
+const urlAPI = 'https://kenzie-food-api.herokuapp.com/product'
 class ProductController{
     static async getAll(){
-      const request = new RequestAPI()
-      const data = await request.getProduct('https://kenzie-food-api.herokuapp.com/product')
-      const products = await data.json()
-      return products
+      const data = await RequestAPI.getProduct(urlAPI)
+      return data
+    }
+
+    static async getById(id){
+      const data = await RequestAPI.getProduct(urlAPI + `/${id}`)
+      return data
     }
 }
 
-module.exports = ProductController
+export {ProductController}

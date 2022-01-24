@@ -1,4 +1,5 @@
-const ProductController = require('./controllers/product-controller')
+import {ProductController} from './controllers/product-controller.js'
 
-const products = ProductController.getAll()
-console.log(products)
+const products = await ProductController.getAll()
+const productId = await ProductController.getById(4)
+console.log(productId)
