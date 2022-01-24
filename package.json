@@ -1,0 +1,28 @@
+{
+  "name": "api-kenziefood-m2-nicollasanderson",
+  "version": "1.0.0",
+  "description": "Nesse trabalho vocês terão que consumir uma API de produtos.",
+  "main": "index.js",
+  "dependencies": {
+    "data-uri-to-buffer": "^4.0.0",
+    "fetch-blob": "^3.1.4",
+    "formdata-polyfill": "^4.0.10",
+    "node-domexception": "^1.0.0",
+    "node-fetch": "^3.2.0",
+    "web-streams-polyfill": "^3.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-nicollasanderson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-nicollasanderson/issues"
+  },
+  "homepage": "https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-nicollasanderson#readme"
+}
