@@ -1,5 +1,5 @@
 body{
-    font-size: 15px;
+    font-size: 12px;
 }
 
 header{
@@ -53,6 +53,7 @@ header button img{
     justify-content: space-around;
     max-width: 440px;
     margin-bottom: 50px;
+    margin: auto;
 }
 
 .listaFiltros li button{
@@ -77,13 +78,67 @@ header button img{
     background-color: #F3EEF5;
 }
 
+.listaProdutos{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 30px;
+}
+
+.listaProdutos li{
+    width: 300px;
+    margin: 10px;
+}
+
+.listaProdutos li img{
+    width: 300px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #FFE9EE;
+}
+
+.listaProdutos li span{
+    border-radius: 30px;
+    padding: 6px 18px 6px 18px;
+    background-color: #FFE9EE;
+}
+
+.listaProdutos h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.listaProdutos p{
+    margin-bottom: 20px
+}
+
+.comprar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.comprar p{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.comprar button{
+    width: 35px;
+    height: 35px;
+    color: #E4F7EF;
+    border-style: none;
+    border-radius: 100px;
+}
+
 aside{
    display: flex;
    flex-direction: column;
    margin: 40px;
 }
 
-aside h3{
+aside h2{
     background-color: #FF2253;
     font-size: 16px;
     max-width: 300px;
@@ -102,4 +157,70 @@ aside ul{
     left: 1166px;
     top: 184px;
     border-radius: 0px;
+    margin: auto;
+
+}
+
+.listaCarrinho{
+    display: flex;
+    flex-direction: column;
+}
+
+.listaCarrinho li{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.listaCarrinho img{
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #FFE9EE;
+}
+
+.infoProdutros{
+    margin-left: 10px;
+}
+
+.listaCarrinho h3{
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.listaCarrinho p{
+    margin-top: 10px;
+}
+
+.listaCarrinho button{
+    width: 25px;
+    height: 25px;
+}
+
+@media only screen and (min-width: 769px){
+body{
+    background-color: #F5F5F5;
+}
+
+header{
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.listaProdutos{
+    max-width: 1000px;
+    flex-wrap: wrap;
+}
+
+.float{
+    display: flex;
+    align-items: flex-start;
+}
+
 }
