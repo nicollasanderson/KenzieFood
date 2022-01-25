@@ -1,10 +1,11 @@
 class ProdutoModel{
-  constructor(nome, preco, categoria, imagem){
+  constructor(nome, preco, categoria, imagem, descricao){
       if(this.validaUrlImagem(imagem) && Number(preco) >= 0){
-        this.nome = `${nome}`
-        this.preco = preco
-        this.categoria = `${categoria}`
-        this.imagem = `${imagem}`
+        this.nome       = `${nome}`
+        this.preco      =  Number(preco)
+        this.categoria  = `${categoria}`
+        this.imagem     = `${imagem}`
+        this.descricao  = `${descricao}`
       }
   }
 
