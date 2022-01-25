@@ -20,7 +20,7 @@ class ProductController{
 
     static async filterProductByName(name){
       const data = await this.getAll()
-      const filtered = data.filter(product => product.nome.toLowerCase().includes(name.toLowerCase()))
+      const filtered = data.filter(product => product.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()))
       return filtered
     }
 }
