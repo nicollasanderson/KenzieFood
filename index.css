@@ -1,0 +1,226 @@
+body{
+    font-size: 12px;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+header img{
+    height: 33px;
+    width: 123px;
+    left: 116px;
+    top: 28px;
+    border-radius: nullpx;
+    margin: 10px;
+
+}
+
+.pesquisa{
+    display: flex; 
+    margin: 10px 0px 20px 10px;   
+}
+
+header input{
+    height: 49.041805267333984px;
+    width: 348.0000305175781px;
+    left: 0px;
+    top: 0px;
+    border-radius: 33.08681869506836px;
+    border-style: none;    
+    background-color: #F8F9FA;
+    padding: 5px;
+}
+
+::-webkit-input-placeholder{
+    font-size: 15px;
+}
+
+header button{
+    background-color: #FFE9EE;
+    border-radius: 100px;
+    border-style: none;
+}
+
+header button img{
+    width: 25px;
+}
+
+.listaFiltros{
+    display: flex;
+    justify-content: space-around;
+    max-width: 440px;
+    margin-bottom: 50px;
+    margin: auto;
+}
+
+.listaFiltros li button{
+    border-style: none;
+    border-radius: 30px;
+    height: 35px;
+}
+
+#todos{
+    background-color: #F8F9FA;
+}
+
+#panificadora{
+    background-color: #FFF7F4;
+}
+
+#frutas{
+    background-color: #FFE4EA;
+}
+
+#bebidas{
+    background-color: #F3EEF5;
+}
+
+.listaProdutos{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 30px;
+}
+
+.listaProdutos li{
+    width: 300px;
+    margin: 10px;
+}
+
+.listaProdutos li img{
+    width: 300px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #FFE9EE;
+}
+
+.listaProdutos li span{
+    border-radius: 30px;
+    padding: 6px 18px 6px 18px;
+    background-color: #FFE9EE;
+}
+
+.listaProdutos h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.listaProdutos p{
+    margin-bottom: 20px
+}
+
+.comprar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.comprar p{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.comprar button{
+    width: 35px;
+    height: 35px;
+    color: #E4F7EF;
+    border-style: none;
+    border-radius: 100px;
+}
+
+aside{
+   display: flex;
+   flex-direction: column;
+   margin: 40px;
+}
+
+aside h2{
+    background-color: #FF2253;
+    font-size: 16px;
+    max-width: 300px;
+    height: 36px;
+    border-radius: 14px 14px 0px 0px;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+aside ul{
+    background-color: #F8F9FA;
+    height: 405px;
+    width: 319px;
+    left: 1166px;
+    top: 184px;
+    border-radius: 0px;
+    margin: auto;
+
+}
+
+.listaCarrinho{
+    display: flex;
+    flex-direction: column;
+}
+
+.listaCarrinho li{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.listaCarrinho img{
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #FFE9EE;
+}
+
+.infoProdutros{
+    margin-left: 10px;
+}
+
+.listaCarrinho h3{
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.listaCarrinho p{
+    margin-top: 10px;
+}
+
+.listaCarrinho button{
+    width: 25px;
+    height: 25px;
+}
+
+@media only screen and (min-width: 769px){
+body{
+    background-color: #F5F5F5;
+}
+
+header{
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    margin-bottom: 40px;
+}
+
+.listaProdutos{
+    max-width: 1000px;
+    flex-wrap: wrap;
+}
+
+.float{
+    display: flex;
+    align-items: flex-start;
+}
+
+}
