@@ -1,11 +1,9 @@
 class VitriniModel{
     static renderProduct(arrProdutcs){
-        
+        console.log(arrProdutcs);
         arrProdutcs.forEach(element=>{
             const divMain = document.createElement('div')
-            const figure = document.createElement('figure')
             const img = document.createElement('img')
-            const figcap = document.createElement('figurecaption')
             const h3 = document.createElement('h3')
             const pDesc = document.createElement('p')
             const pPrice = document.createElement('p')
@@ -17,10 +15,10 @@ class VitriniModel{
             h3.innerText = element.nome
             pDesc.innerText = element.descricao
             pPrice.innerText = `R$ ${element.preco}`
-            
-            figure.appendChild(img)
-            figure.appendChild(figcap)
-            divMain.appendChild(figure)
+            button.classList.add('botaoCarrinho')
+            img.classList.add('img')
+
+            divMain.appendChild(img)
             divMain.appendChild(h3)
             divMain.appendChild(pDesc)
             divMain.appendChild(pPrice)
@@ -30,6 +28,31 @@ class VitriniModel{
         })
 
     }
+    // static arrProdutos = []
+    
+    // static renderProductCart(divProduto){
+    //     const aside = document.getElementById('carrinho')
+
+    //     const containerProductCart = document.createElement('div')
+    //     const imgProductCart = document.createElement('img')
+    //     const nameProductCart = document.createElement('h3')
+    //     const pTag = document.createElement('p')
+    //     const pPrice = document.createElement('p')
+    //     const buttonRemove = document.createElement('button')
+    //     buttonRemove.classList.add('buttonRemove')
+
+    //     imgProductCart.src = divProduto.querySelector('img').src
+    //     nameProductCart.innerText = divProduto.querySelector('h3').innerText
+
+    //     containerProductCart.appendChild(imgProductCart)
+    //     containerProductCart.appendChild(nameProductCart)
+    //     containerProductCart.appendChild(buttonRemove)
+        
+    //     aside.appendChild(containerProductCart)
+        
+        
+    // }
+
 }
 
 export {VitriniModel}
