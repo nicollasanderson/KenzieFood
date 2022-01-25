@@ -2,56 +2,72 @@ class VitriniModel{
     static renderProduct(arrProdutcs){
         console.log(arrProdutcs);
         arrProdutcs.forEach(element=>{
-            const divMain = document.createElement('div')
+            const ulMain = document.querySelector('.listaProdutos')
+            const li = document.createElement('li')
             const img = document.createElement('img')
             const h3 = document.createElement('h3')
+            const span = document.createElement('span')
             const pDesc = document.createElement('p')
+            const divCompra = document.createElement('div')
             const pPrice = document.createElement('p')
             const button = document.createElement('button')
-            const containerBoxProduto = document.getElementById('containerBoxProduto')
-
+            
             img.src = element.imagem
             img.alt = element.nome
+            span.innerText = element.categoria
             h3.innerText = element.nome
             pDesc.innerText = element.descricao
             pPrice.innerText = `R$ ${element.preco}`
-            button.classList.add('botaoCarrinho')
+            
+            divCompra.classList.add('comprar')
             img.classList.add('img')
 
-            divMain.appendChild(img)
-            divMain.appendChild(h3)
-            divMain.appendChild(pDesc)
-            divMain.appendChild(pPrice)
-            divMain.appendChild(button)
+            li.appendChild(img)
+            li.appendChild(span)
+            li.appendChild(h3)
+            li.appendChild(pDesc)
+            divCompra.appendChild(pPrice)
+            divCompra.appendChild(button)
+            li.appendChild(divCompra)
 
-            containerBoxProduto.appendChild(divMain)
+            ulMain.appendChild(li)
         })
 
     }
-    // static arrProdutos = []
+    static arrProdutos = []
     
-    // static renderProductCart(divProduto){
-    //     const aside = document.getElementById('carrinho')
+    static renderProductCart(arrProduto){
+        const vitriniCarrinho = document.querySelector('.listaCarrinho')
+        vitriniCarrinho.innerText = ''
+        arrProduto.forEach(element=>{
+            
+            const liContainer = document.createElement('li')
+            const imgProductCart = document.createElement('img')
+            const divInfo = document.createElement('div')
+            const nameProductCart = document.createElement('h3')
+            const spantTag = document.createElement('span')
+            const pPrice = document.createElement('p')
+            const buttonRemove = document.createElement('button')
 
-    //     const containerProductCart = document.createElement('div')
-    //     const imgProductCart = document.createElement('img')
-    //     const nameProductCart = document.createElement('h3')
-    //     const pTag = document.createElement('p')
-    //     const pPrice = document.createElement('p')
-    //     const buttonRemove = document.createElement('button')
-    //     buttonRemove.classList.add('buttonRemove')
+            divInfo.classList.add('infoProdutos')
+            buttonRemove.classList.add('remover')
 
-    //     imgProductCart.src = divProduto.querySelector('img').src
-    //     nameProductCart.innerText = divProduto.querySelector('h3').innerText
+            imgProductCart.src = element.imagem
+            nameProductCart.innerText = element.nome 
+            spantTag.innerText = element.categoria
+            pPrice.innerText = `R$ ${element.preco}`
 
-    //     containerProductCart.appendChild(imgProductCart)
-    //     containerProductCart.appendChild(nameProductCart)
-    //     containerProductCart.appendChild(buttonRemove)
+            liContainer.appendChild(imgProductCart)
+            divInfo.appendChild(nameProductCart)
+            divInfo.appendChild(spantTag)
+            divInfo.appendChild(pPrice)
+            liContainer.appendChild(divInfo)
+            liContainer.appendChild(buttonRemove)
+            
+            vitriniCarrinho.appendChild(liContainer)
+        })
         
-    //     aside.appendChild(containerProductCart)
-        
-        
-    // }
+    }
 
 }
 
