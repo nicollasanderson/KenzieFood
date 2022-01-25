@@ -57,7 +57,7 @@ class MyProductController{
     static async patchProduct(id,product){
       console.log(product)
       const config = {
-        method: "patch", 
+        method: "PATCH", 
         headers: {
           "Content-Type": "application/json",
          "Authorization": token
