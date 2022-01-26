@@ -4,27 +4,27 @@ import {VitriniModel} from '../models/product-model.js'
 const lista = await ProductController.getAll()
 VitriniModel.renderProduct(lista)
 
-const botoes = document.querySelectorAll('.botaoCarrinho')
 const containerPrincipal = document.querySelector('.float')
+let searchInput = document.getElementById('searchInput')
+let total = 0
 
 class CarrinhoCompras{
     static arr = []
 
-    static verifyEvent(event){
+    static addCart(event){
         if(event.target.tagName === 'BUTTON' && event.target.className !== 'remover'){
             
             const liParent = event.target.parentNode.parentNode
             const name = liParent.querySelector('h3').innerText
             const produtoFiltrado = lista.find(element=> element.nome === name)
 
+            total += parseFloat(produtoFiltrado.preco)
+            console.log(total);
             CarrinhoCompras.arr.push(produtoFiltrado)
             const storage = CarrinhoCompras.arr.map(element=>JSON.stringify(element))
 
             localStorage.setItem('carrinho',CarrinhoCompras.arr)
             console.log(localStorage.getItem('carrinho'))
-            
-            
-            console.log(storage);
 
             VitriniModel.renderProductCart(CarrinhoCompras.arr)
             
@@ -32,7 +32,7 @@ class CarrinhoCompras{
 
             const liParent = event.target.parentNode
             const name = liParent.querySelector('h3').innerText
-
+            
             CarrinhoCompras.arr = CarrinhoCompras.arr.filter(element=>element.nome !== name)
 
             VitriniModel.renderProductCart(CarrinhoCompras.arr)
@@ -40,6 +40,20 @@ class CarrinhoCompras{
         }
     }
 
+    static async findSearch(search){
+        let product = await ProductController.filterProductByName(search)
+        let categoria = await ProductController.filterProductByCategory(search)
+        if(product.length === 0){
+            VitriniModel.renderProduct(categoria)
+        }else{
+            VitriniModel.renderProduct(product)
+        }
+        
+    }
+
 }
 
-containerPrincipal.addEventListener('click',CarrinhoCompras.verifyEvent)
+searchInput.addEventListener('input',function(){
+    CarrinhoCompras.findSearch(searchInput.value)
+})
+containerPrincipal.addEventListener('click',CarrinhoCompras.addCart)
