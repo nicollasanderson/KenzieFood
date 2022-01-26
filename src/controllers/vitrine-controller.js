@@ -13,15 +13,13 @@ class CarrinhoCompras{
     static arr = []
 
     static addCart(event){
-        if(event.target.tagName === 'BUTTON' && event.target.className !== 'remover'){
+        if(event.target.tagName === 'BUTTON' && event.target.className === 'comprar'){
             
             const liParent = event.target.parentNode.parentNode
             const name = liParent.querySelector('h3').innerText
             const produtoFiltrado = lista.find(element=> element.nome === name)
             
             CarrinhoCompras.arr.push(produtoFiltrado)
-
-            const storage = CarrinhoCompras.arr.map(element=>JSON.stringify(element))
 
             localStorage.setItem('carrinho',CarrinhoCompras.arr)
 
@@ -61,6 +59,11 @@ class CarrinhoCompras{
         
     }
 
+    static async categorySearch(category){
+        let productList = await ProductController.filterProductByCategory(category)
+        VitriniModel.renderProduct(productList)
+    }
+
     static sumProducts(arrProducts){
         let total = 0
         arrProducts.forEach(element=>{
@@ -72,13 +75,24 @@ class CarrinhoCompras{
         const pSum = document.getElementById('sumTotal')
 
         pQnt.innerText = qntItems
-        pSum.innerText = total
+        pSum.innerText = `R$ ${total}`
         
     }
 
 }
 
+const filterList = document.querySelectorAll('.filter')
 
+filterList.forEach(element=>{
+    element.addEventListener('click',function(){
+        if(element.id === 'todos'){
+            VitriniModel.renderProduct(lista)
+        }else{
+            CarrinhoCompras.categorySearch(element.id)
+        }
+        
+    })
+})
 
 searchInput.addEventListener('input',function(){
     CarrinhoCompras.findSearch(searchInput.value)

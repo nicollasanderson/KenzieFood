@@ -12,7 +12,6 @@ class VitriniModel{
             const divCompra = document.createElement('div')
             const pPrice = document.createElement('p')
             const button = document.createElement('button')
-            const imgCart = document.createElement("img")
             
             img.src = element.imagem
             img.alt = element.nome
@@ -20,6 +19,7 @@ class VitriniModel{
             h3.innerText = element.nome
             pDesc.innerText = element.descricao
             pPrice.innerText = `R$ ${element.preco}`
+            button.classList.add('comprar')
             
             divCompra.classList.add('comprar')
 
