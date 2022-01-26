@@ -5,6 +5,7 @@
   --color-secondary: #4ACA94;
   --color-secondary-50: #E4F7EF;
   --color-primary: #FF2253;
+  --color-primary-50: #FFE9EE;
 }
 
 .container-modal{
@@ -55,6 +56,7 @@
   padding-top: 12px;
 }
 .modal-button{
+  box-sizing: border-box;
   font-family: 'Poppins';
   font-size: 12px;
   background-color: var(--color-gray-1);
@@ -143,8 +145,13 @@
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 25px;
 }
+.modal-main-salvar:hover{
+  background-color: var(--color-primary-50);
+  color: var(--color-primary);
+}
+
 .modal-form-select{
-  display: block;
+  display: none;
   margin: 25px 0;
   height: 35px;
   width: 100%;
@@ -153,12 +160,12 @@
   font-family: 'Poppins';
   font-size: 14px;
   color: var(--color-gray-3);
+  border-radius: 5px;
 }
 
 .modal-fechar{
   position: absolute;
   cursor: pointer;
-  pointer-events: none;
   right: -10px;
   top: -10px;
   border-radius: 100%;
@@ -172,6 +179,14 @@
   font-family: 'Poppins';
   font-weight: 700;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.display-none{
+  display: none;
+}
+
+.display-block{
+  display: block;
 }
 
 @media (min-width: 800px) {
