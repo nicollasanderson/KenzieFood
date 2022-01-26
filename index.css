@@ -254,8 +254,24 @@ aside ul{
     padding: 0 18px;
     font-weight: 700;
 }
+
 .hidden{
     display: none;
+}
+
+main{
+    flex: 5;
+}
+
+aside{
+    flex: 1;
+}
+
+header{
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    margin-bottom: 40px;
 }
 
 @media only screen and (min-width: 769px){
