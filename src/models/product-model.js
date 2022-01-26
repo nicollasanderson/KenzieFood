@@ -1,6 +1,6 @@
 class VitriniModel{
     static renderProduct(arrProdutcs){
-        console.log(arrProdutcs);
+
         const ulMain = document.querySelector('.listaProdutos')
         ulMain.innerHTML = ''
         arrProdutcs.forEach(element=>{
