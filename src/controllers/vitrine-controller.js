@@ -5,8 +5,9 @@ const lista = await ProductController.getAll()
 VitriniModel.renderProduct(lista)
 
 const containerPrincipal = document.querySelector('.float')
-let searchInput = document.getElementById('searchInput')
-let total = 0
+const searchInput = document.getElementById('searchInput')
+const divSum = document.querySelector('.hidden')
+
 
 class CarrinhoCompras{
     static arr = []
@@ -17,16 +18,20 @@ class CarrinhoCompras{
             const liParent = event.target.parentNode.parentNode
             const name = liParent.querySelector('h3').innerText
             const produtoFiltrado = lista.find(element=> element.nome === name)
-
-            total += parseFloat(produtoFiltrado.preco)
-            console.log(total);
+            
             CarrinhoCompras.arr.push(produtoFiltrado)
+
             const storage = CarrinhoCompras.arr.map(element=>JSON.stringify(element))
 
             localStorage.setItem('carrinho',CarrinhoCompras.arr)
-            console.log(localStorage.getItem('carrinho'))
 
             VitriniModel.renderProductCart(CarrinhoCompras.arr)
+            CarrinhoCompras.sumProducts(CarrinhoCompras.arr)
+            
+            if(CarrinhoCompras.arr.length>0){
+                
+                divSum.classList.remove('hidden')
+            }
             
         }else if(event.target.tagName === 'BUTTON' && event.target.className === 'remover'){
 
@@ -37,6 +42,11 @@ class CarrinhoCompras{
 
             VitriniModel.renderProductCart(CarrinhoCompras.arr)
 
+            CarrinhoCompras.sumProducts(CarrinhoCompras.arr)
+
+            if(CarrinhoCompras.arr.length==0){
+                divSum.classList.add('hidden')
+            }
         }
     }
 
@@ -51,9 +61,26 @@ class CarrinhoCompras{
         
     }
 
+    static sumProducts(arrProducts){
+        let total = 0
+        arrProducts.forEach(element=>{
+            total += element.preco
+        })
+        let qntItems = arrProducts.length
+
+        const pQnt = document.getElementById('quantidade')
+        const pSum = document.getElementById('sumTotal')
+
+        pQnt.innerText = qntItems
+        pSum.innerText = total
+        
+    }
+
 }
+
+
 
 searchInput.addEventListener('input',function(){
     CarrinhoCompras.findSearch(searchInput.value)
 })
-containerPrincipal.addEventListener('click',CarrinhoCompras.addCart)
+containerPrincipal.addEventListener('click',CarrinhoCompras.addCart,false)

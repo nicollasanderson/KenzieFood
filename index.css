@@ -3,6 +3,7 @@
 body{
     font-size: 12px;
     font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
 }
 
 header{
@@ -141,10 +142,11 @@ header button img{
     border-style: none;
     border-radius: 100px;
     cursor: pointer;
-}
-
-.comprar button img{
-    width: 20px;
+    background-image: url("src/imgs/shopping-cart_1f6d2.png");
+    color: #ccc;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 aside{
@@ -183,6 +185,7 @@ aside ul{
 .listaCarrinho{
     display: flex;
     flex-direction: column;
+    background-color: #FFFFFF;
 }
 
 .listaCarrinho li{
@@ -200,8 +203,14 @@ aside ul{
     border-color: #FFE9EE;
 }
 
-.infoProdutros{
-    margin-left: 10px;
+.infoProdutos{
+    margin-left: 12px;
+    width: 190px;
+}
+
+.infoProdutos p{
+    width: 100px;
+    margin: 0;
 }
 
 .listaCarrinho h3{
@@ -218,19 +227,36 @@ aside ul{
 .listaCarrinho button{
     padding: 0%;
     width: 25px;
+
     height: 25px;
     border: none;
     cursor: pointer;
+    background-image: url('src/imgs/lixo.png');
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-color: #F8F9FA;
+    background-position: center;
+}
+.qntItems{
+    height: 58px;
+    background-color: #F8F9FA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    font-weight: 700;
+}
+.sumTotal{
+    height: 58px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 18px;
+    font-weight: 700;
 }
 
-.listaCarrinho button img{
-    width: 15px;
-    height: 15px;
-}
-
-@media only screen and (min-width: 769px){
-body{
-    background-color: #F5F5F5;
+.hidden{
+    display: none;
 }
 
 main{
@@ -248,16 +274,28 @@ header{
     margin-bottom: 40px;
 }
 
-.listaProdutos{
-    max-width: 1000px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+@media only screen and (min-width: 769px){
 
-.float{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
+    header{
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: #FFFFFF;
+        margin-bottom: 40px;
+    }
+
+
+    .listaProdutos{
+        max-width: 1000px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .float{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: auto;
+    }
 
 }

@@ -54,14 +54,26 @@
             
             <!-- <li>
                 <img src="imgs/download.jpeg" alt="produto">
-                <div class="infoProdutros">
+                <div class="infoProdutos">
                     <h3>panqueca</h3>
                     <span>panificadora</span>
                     <p>R$20.00</p>
+                    <p id="quantidade">1x</p>
                 </div>
                 <button class="remover">A</button>
             </li> -->
         </ul>
+        <div class="hidden">
+            <div class="qntItems">
+                <p>Quantidade</p>
+                <p id="quantidade"></p>
+            </div>
+            <div class="sumTotal">
+                <p>Total</p>
+                <p id="sumTotal"></p>
+            </div>
+        </div>
+        
     </aside>
     </div>
     <script src="src/controllers/vitrine-controller.js" type="module"></script>
