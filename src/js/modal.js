@@ -119,9 +119,12 @@ btn_salvar.addEventListener('click', async (ev) => {
   ev.preventDefault()
   if(funcao === 'novo'){
     const newProduct = getProduct()
-    
+    if(newProduct.imagem){
     MyProductController.create(newProduct)
     alert('Produto cadastrado')
+    }else{
+      alert('URL da imagem inválido')
+    }
   }else if(funcao === 'alterar'){
     const newProduct = getProduct()
     const id = document.getElementById('modal-form-nome').getAttribute('key')
