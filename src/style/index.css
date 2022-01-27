@@ -152,7 +152,7 @@ header button img{
     border-style: none;
     border-radius: 100px;
     cursor: pointer;
-    background-image: url("/src/imgs/shopping-cart_1f6d2.png");
+    background-image: url("./src/imgs/shopping-cart_1f6d2.png");
     color: #ccc;
     background-size: 20px;
     background-repeat: no-repeat;
@@ -256,7 +256,7 @@ aside ul{
     height: 25px;
     border: none;
     cursor: pointer;
-    background-image: url('/src/imgs/lixo.png');
+    background-image: url('../src/imgs/lixo.png');
     background-size: 15px;
     background-repeat: no-repeat;
     background-color: #F8F9FA;
