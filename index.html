@@ -19,7 +19,6 @@
             <input type="text" name="Pesquisa" id="searchInput" placeholder="Pesquisar por produto">
             <button id="buttonSearch"><img src="src/imgs/Text.svg" alt="pesquisa"></button>
         </div>
-        <button id="addProduct">+</button>
     </header>
     <div class="float">
     <main>
@@ -36,6 +35,9 @@
             <li>
                 <button id="Bebidas" class="filter"><img src="src/imgs/wine-glass.png" alt="wine-glass"> Bebidas</button>
             </li>
+            <li>
+                <button id="addProduct">+</button>
+            </li>
         </ul>
         <ul class="listaProdutos">
             
@@ -43,8 +45,11 @@
     </main>
     <aside>
         <h2><img src="src/imgs/shopping-cart_1f6d2.png" alt="Carrinho"> Carrinho</h2>
-        <ul class="listaCarrinho">
-            
+        <ul class="listaCarrinho carrinhoVazio">
+            <div class="vazioTexto">
+                <p><strong>Ops!</strong></p>
+                <p>Por enquanto não temos produtos no carrinho</p>
+            </div>
         </ul>
         <div class="hidden">
             <div class="qntItems">

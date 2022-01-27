@@ -1,13 +1,16 @@
 import {ProductController} from '../controllers/product-controller.js'
 import {VitriniModel} from '../models/product-model.js'
+import { MyProductController } from '../controllers/my-product-controller.js'
 
 const lista = await ProductController.getAll()
+
 VitriniModel.renderProduct(lista)
 
 const containerPrincipal = document.querySelector('.float')
 const searchInput = document.getElementById('searchInput')
 const divSum = document.querySelector('.hidden')
-
+const listaCart = document.querySelector('.listaCarrinho')
+const vazioTexto = document.querySelector('.vazioTexto')
 
 class CarrinhoCompras{
     static arr = []
@@ -27,7 +30,7 @@ class CarrinhoCompras{
             CarrinhoCompras.sumProducts(CarrinhoCompras.arr)
             
             if(CarrinhoCompras.arr.length>0){
-                
+                listaCart.classList.remove('carrinhoVazio')
                 divSum.classList.remove('hidden')
             }
             
@@ -43,7 +46,9 @@ class CarrinhoCompras{
             CarrinhoCompras.sumProducts(CarrinhoCompras.arr)
 
             if(CarrinhoCompras.arr.length==0){
+                listaCart.classList.add('carrinhoVazio')
                 divSum.classList.add('hidden')
+                listaCart.appendChild(vazioTexto)
             }
         }
     }
