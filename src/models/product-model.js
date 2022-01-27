@@ -19,7 +19,8 @@ class VitriniModel{
             h3.innerText = element.nome
             pDesc.innerText = element.descricao
             pPrice.innerText = `R$ ${element.preco}`
-            button.classList.add('comprar')
+            button.classList.add('comprarButton')
+            img.classList.add('imgProduct')
             
             divCompra.classList.add('comprar')
 

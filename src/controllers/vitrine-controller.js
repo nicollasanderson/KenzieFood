@@ -16,15 +16,15 @@ class CarrinhoCompras{
     static arr = []
 
     static addCart(event){
-        if(event.target.tagName === 'BUTTON' && event.target.className === 'comprar'){
+        if(event.target.tagName === 'BUTTON' && event.target.className === 'comprarButton'){
             
             const liParent = event.target.parentNode.parentNode
             const name = liParent.querySelector('h3').innerText
             const produtoFiltrado = lista.find(element=> element.nome === name)
             
             CarrinhoCompras.arr.push(produtoFiltrado)
-
-            localStorage.setItem('carrinho',CarrinhoCompras.arr)
+            const listString = JSON.stringify(CarrinhoCompras.arr)
+            localStorage.setItem('carrinho',listString)
 
             VitriniModel.renderProductCart(CarrinhoCompras.arr)
             CarrinhoCompras.sumProducts(CarrinhoCompras.arr)
@@ -41,8 +41,10 @@ class CarrinhoCompras{
             
             CarrinhoCompras.arr = CarrinhoCompras.arr.filter(element=>element.nome !== name)
 
+            const listString = JSON.stringify(CarrinhoCompras.arr)
+            localStorage.setItem('carrinho',listString)
+            
             VitriniModel.renderProductCart(CarrinhoCompras.arr)
-
             CarrinhoCompras.sumProducts(CarrinhoCompras.arr)
 
             if(CarrinhoCompras.arr.length==0){
@@ -50,6 +52,24 @@ class CarrinhoCompras{
                 divSum.classList.add('hidden')
                 listaCart.appendChild(vazioTexto)
             }
+        }
+    }
+
+    static localCart(){
+        if(CarrinhoCompras.arr.length==0){
+            let listFinal = localStorage.getItem('carrinho')
+            listFinal = JSON.parse(listFinal)
+            
+            VitriniModel.renderProductCart(listFinal)
+            CarrinhoCompras.sumProducts(listFinal)
+            this.arr = listFinal
+            if(listFinal.length>0){
+                listaCart.classList.remove('carrinhoVazio')
+                divSum.classList.remove('hidden')
+            }else{
+                listaCart.appendChild(vazioTexto)
+            }
+            
         }
     }
 
@@ -85,6 +105,7 @@ class CarrinhoCompras{
     }
 
 }
+CarrinhoCompras.localCart()
 
 const filterList = document.querySelectorAll('.filter')
 
