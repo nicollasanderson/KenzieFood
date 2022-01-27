@@ -13,6 +13,7 @@ const config = {
 class MyProductController{
     static async getAll(){
       config.method = "get"
+      config.body = null
       const data = await RequestAPI.getMyProduct(urlAPI, config)
       return data
     }
@@ -25,6 +26,7 @@ class MyProductController{
 
     static async deleteProduct(id){
       config.method = "delete"
+      config.body = null
       const data = await RequestAPI.getMyProduct(`${urlAPI}/${id}`, config)
       return data
     }
