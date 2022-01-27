@@ -19,6 +19,7 @@
             <input type="text" name="Pesquisa" id="searchInput" placeholder="Pesquisar por produto">
             <button id="buttonSearch"><img src="src/imgs/Text.svg" alt="pesquisa"></button>
         </div>
+        <button id="addProduct">+</button>
     </header>
     <div class="float">
     <main>
@@ -60,7 +61,7 @@
     </div>
 
 
-    <div class="container-modal">
+    <div class="container-modal display-none">
     <section class="modal">
         <span class="modal-fechar">X</span>
         <div class="modal-header">
@@ -74,9 +75,9 @@
                 <button class="modal-button button-novo button-selected">Novo</button><button class="modal-button button-alterar">Alterar</button><button class="modal-button button-deletar">Deletar</button>
             </nav>
             <form action="" class="modal-main-form">
-                <select name="select" class="modal-form-select">
+                <select name="select" class="modal-form-select" id="modal-form-select">
                     <option value="valor1">Selecione</option>
-                  </select>
+                </select>
                 <div class="input-box">
                     <label for="modal-form-nome" name="nome"    class="modal-main-label label-nome">Nome</label>
                     <input class="modal-main-input" type="text" id="modal-form-nome" placeholder="">
@@ -102,11 +103,11 @@
                     <label for="modal-form-imagem" name="imagem" class="modal-main-label label-imagem">Imagem</label>
                     <input class="modal-main-input" class="modal-main-input" type="text" id="modal-form-imagem">
                 </div>
-                <button class="modal-main-salvar">Salvar</button>
-            </form>
-        </div>
-    </section>
-</div>
+                    <button class="modal-main-salvar">Salvar</button>
+                </form>
+            </div>
+        </section>
+    </div>
 <script src="./src/js/modal.js" type="module"></script>
     <script src="src/controllers/vitrine-controller.js" type="module"></script>
     
