@@ -152,7 +152,7 @@ header button img{
     border-style: none;
     border-radius: 100px;
     cursor: pointer;
-    background-image: url("api-kenziefood-m2-nicollasanderson/src/imgs/shopping-cart_1f6d2.png");
+    background-image: url("/src/imgs/shopping-cart_1f6d2.png");
     color: #ccc;
     background-size: 20px;
     background-repeat: no-repeat;
