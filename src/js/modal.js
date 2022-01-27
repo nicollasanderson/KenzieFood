@@ -4,6 +4,7 @@ const fechar = document.querySelector('.modal-fechar')
 const modal = document.querySelector('.container-modal')
 const main_buttons = document.querySelector('.modal-main-buttons')
 const buttonAdd = document.getElementById('addProduct')
+const select = document.getElementById('modal-form-select')
 
 let funcao = 'novo'
 fechar.addEventListener('click', () => {
@@ -29,7 +30,7 @@ main_buttons.addEventListener('click', async (ev) => {
     selec_list.classList.add('display-block')
 
     const listaProdutos = await MyProductController.getAll()
-    const select = document.getElementById('modal-form-select')
+    
     listaProdutos.forEach(element=>{
       const option = document.createElement('option')
       option.value = element.id
@@ -73,9 +74,25 @@ btn_salvar.addEventListener('click', async (ev) => {
 
     MyProductController.create(product)
   }else if(funcao === 'alterar'){
-    
-    console.log(select.value);
-    console.log(await MyProductController.getAll())
+    const listaProdutos = await MyProductController.getAll()
+
+    listaProdutos.forEach(element=>{
+      if(element.id === Number(select.value)){
+        const nome = document.getElementById('modal-form-nome')
+        const preco = document.getElementById('modal-form-preco')
+        const desc = document.getElementById('modal-form-descricao')
+        const img = document.getElementById('modal-form-imagem')
+
+        nome.value = element.nome
+        preco.innerText = element.preco
+        desc.innerText  = element.descricao
+        img.innerText = element.imagem
+      }
+    })
+
+    if(listaProdutos.some(element=>element.id === select.value)){
+      
+    }
   }else{
     console.log('deletar')
   }
