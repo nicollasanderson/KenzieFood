@@ -97,4 +97,4 @@ filterList.forEach(element=>{
 searchInput.addEventListener('input',function(){
     CarrinhoCompras.findSearch(searchInput.value)
 })
-containerPrincipal.addEventListener('click',CarrinhoCompras.addCart,false)
+containerPrincipal.addEventListener('click',CarrinhoCompras.addCart)
