@@ -233,7 +233,7 @@ aside ul{
     height: 25px;
     border: none;
     cursor: pointer;
-    background-image: url('src/imgs/lixo.png');
+    background-image: url('/src/imgs/lixo.png');
     background-size: 15px;
     background-repeat: no-repeat;
     background-color: #F8F9FA;
