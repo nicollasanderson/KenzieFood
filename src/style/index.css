@@ -132,7 +132,9 @@ header button img{
 }
 
 .listaProdutos p{
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    line-height: 15px;
+    color: #868E96;
 }
 
 .comprar{
@@ -143,6 +145,7 @@ header button img{
 .comprar p{
     font-weight: 700;
     font-size: 16px;
+    color: black;
 }
 
 .comprar button{
@@ -344,7 +347,9 @@ header{
     .listaProdutos{
         max-width: 1000px;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
+        margin-bottom: 100px;
+        gap: 10px;
     }
 
     .float{

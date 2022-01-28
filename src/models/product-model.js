@@ -19,9 +19,10 @@ class VitriniModel{
             h3.innerText = element.nome
             pDesc.innerText = element.descricao
             pPrice.innerText = `R$ ${element.preco}`
+            h3.id = element.id
+
             button.classList.add('comprarButton')
             img.classList.add('imgProduct')
-            
             divCompra.classList.add('comprar')
 
             li.appendChild(img)
@@ -58,6 +59,7 @@ class VitriniModel{
             nameProductCart.innerText = element.nome 
             spantTag.innerText = element.categoria
             pPrice.innerText = `R$ ${element.preco}`
+            nameProductCart.id = element.id
             
             liContainer.appendChild(imgProductCart)
             divInfo.appendChild(nameProductCart)

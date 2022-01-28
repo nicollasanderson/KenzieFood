@@ -1,6 +1,5 @@
 import {ProductController} from '../controllers/product-controller.js'
 import {VitriniModel} from '../models/product-model.js'
-import { MyProductController } from '../controllers/my-product-controller.js'
 
 const lista = await ProductController.getAll()
 
@@ -19,8 +18,8 @@ class CarrinhoCompras{
         if(event.target.tagName === 'BUTTON' && event.target.className === 'comprarButton'){
             
             const liParent = event.target.parentNode.parentNode
-            const name = liParent.querySelector('h3').innerText
-            const produtoFiltrado = lista.find(element=> element.nome === name)
+            const id = liParent.querySelector('h3').id
+            const produtoFiltrado = lista.find(element=> element.id === Number(id))
             
             CarrinhoCompras.arr.push(produtoFiltrado)
             const listString = JSON.stringify(CarrinhoCompras.arr)
@@ -37,9 +36,13 @@ class CarrinhoCompras{
         }else if(event.target.tagName === 'BUTTON' && event.target.className === 'remover'){
 
             const liParent = event.target.parentNode
-            const name = liParent.querySelector('h3').innerText
+            const id = liParent.querySelector('h3').id
             
-            CarrinhoCompras.arr = CarrinhoCompras.arr.filter(element=>element.nome !== name)
+            const produtoFiltrado = CarrinhoCompras.arr.find(element=>element.id === Number(id))
+            
+            const index = CarrinhoCompras.arr.indexOf(produtoFiltrado)
+            
+            CarrinhoCompras.arr.splice(index, 1)
 
             const listString = JSON.stringify(CarrinhoCompras.arr)
             localStorage.setItem('carrinho',listString)
