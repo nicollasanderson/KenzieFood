@@ -56,10 +56,10 @@ class CarrinhoCompras{
     }
 
     static localCart(){
-        if(CarrinhoCompras.arr.length==0){
-            let listFinal = localStorage.getItem('carrinho')
-            listFinal = JSON.parse(listFinal)
-            
+        let listFinal = localStorage.getItem('carrinho')
+        listFinal = JSON.parse(listFinal)
+        if(CarrinhoCompras.arr.length==0 && listFinal !== null){
+                       
             VitriniModel.renderProductCart(listFinal)
             CarrinhoCompras.sumProducts(listFinal)
             this.arr = listFinal
@@ -70,6 +70,8 @@ class CarrinhoCompras{
                 listaCart.appendChild(vazioTexto)
             }
             
+        }else{
+            listaCart.appendChild(vazioTexto)
         }
     }
 
